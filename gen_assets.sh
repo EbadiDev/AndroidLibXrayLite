@@ -61,13 +61,8 @@ compile_dat () {
 
 
 download_dat () {
-    wget -qO - https://api.github.com/repos/v2ray/geoip/releases/latest \
-    | grep browser_download_url | cut -d '"' -f 4 \
-    | wget -i - -O $DATADIR/geoip.dat
-
-    wget -qO - https://api.github.com/repos/v2ray/domain-list-community/releases/latest \
-    | grep browser_download_url | cut -d '"' -f 4 \
-    | wget -i - -O $DATADIR/geosite.dat
+    wget -qO $DATADIR/geoip.dat https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geoip.dat
+    wget -qO $DATADIR/geosite.dat https://raw.githubusercontent.com/Chocolate4U/Iran-v2ray-rules/release/geosite.dat
 }
 
 ACTION="${1:-}"
